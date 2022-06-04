@@ -1,12 +1,18 @@
 nav{
     display:flex;
-    flex-wrap:wrap;
     justify-content: space-evenly;
-    padding:10px;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
     height: fit-content;
+    font-weight: bold;
+    font-size: 1.3rem;
 }
-nav section{
-    font-weight: 1000;
-    font-size: 20px;
-    text-decoration: none;
+
+@media only screen and (max-width: 600px) {
+    nav {
+        font-size: 1rem;
+        padding-left: 7rem;
+        padding-right: 1rem;
+        overflow: scroll;
+    }
 }

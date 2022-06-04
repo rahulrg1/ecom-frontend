@@ -56,19 +56,17 @@ const Navbar = () => {
   return (
     <>
       <nav className=" ">
-        <section className="">
           {navigation.map(([path, name], index) => {
             return (
               <Link
                 key={index}
-                style={{ textDecoration: "none", padding: "30px" }}
+                style={{ textDecoration: "none", padding: "5px" }}
                 to={path}
               >
                 {name}
               </Link>
             );
           })}
-        </section>
       </nav>
       {/* <Outlet /> */}
     </>

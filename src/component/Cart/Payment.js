@@ -26,10 +26,6 @@ const Payment = ({ history }) => {
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { error } = useSelector((state) => state.newOrder);
 
-  const paymentData = {
-    amount: Math.round(orderInfo.totalPrice * 100),
-  };
-
   const order = {
     shippingInfo,
     orderItems: cartItems,
