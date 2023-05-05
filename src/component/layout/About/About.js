@@ -4,8 +4,8 @@ import { Button, Typography, Avatar } from "@material-ui/core";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import InstagramIcon from "@material-ui/icons/Instagram";
 const About = () => {
-  const visitInstagram = () => {
-    window.location = "https://instagram.com";
+  const visitYoutube = () => {
+    window.location = "https://www.youtube.com/channel/UCE7Rw5mAodCRH71VspUJXZg";
   };
   return (
     <div className="aboutSection">
@@ -18,22 +18,22 @@ const About = () => {
           <div>
             <Avatar
               style={{ width: "10vmax", height: "10vmax", margin: "2vmax 0" }}
-              src=""
+              src="aboutLogo.jpeg"
               alt="Founder"
             />
-            <Typography>RAHUL</Typography>
-            <Button onClick={visitInstagram} color="primary">
-              Visit Instagram
+            <Typography>quicart</Typography>
+            <Button onClick={visitYoutube} color="primary">
+              Visit YouTube
             </Button>
-            <span>This is a sample wesbite made by RAHUL...</span>
+            <span>...</span>
           </div>
           <div className="aboutSectionContainer2">
             <Typography component="h2">Our Brands</Typography>
-            <a href="https://www.youtube.com" target="blank">
+            <a href="https://www.youtube.com/channel/UCE7Rw5mAodCRH71VspUJXZg" target="blank">
               <YouTubeIcon className="youtubeSvgIcon" />
             </a>
 
-            <a href="https://instagram.com" target="blank">
+            <a href="https://instagram.com/quicart123?igshid=ZDdkNTZiNTM=" target="blank">
               <InstagramIcon className="instagramSvgIcon" />
             </a>
           </div>

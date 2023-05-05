@@ -14,7 +14,7 @@ const Footer = () => {
       </div>
 
       <div className="midFooter">
-        <h1>ECOMMERCE.</h1>
+        <h1>QUICART !.</h1>
         <p>High Quality is our first priority</p>
 
         <p>Copyrights 2021 &copy; RAHUL</p>
@@ -22,7 +22,7 @@ const Footer = () => {
 
       <div className="rightFooter">
         <h4>Follow Us</h4>
-        <a href="http://instagram.com">Instagram</a>
+        <a href="https://www.instagram.com/arsu4398/">Instagram</a>
         <a href="http://youtube.com">Youtube</a>
         <a href="http://facebook.com">Facebook</a>
       </div>

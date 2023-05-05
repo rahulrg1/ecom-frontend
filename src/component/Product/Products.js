@@ -11,13 +11,14 @@ import Typography from "@material-ui/core/Typography";
 import MetaData from "../layout/MetaData";
 
 const categories = [
-  "Laptop",
-  "Footwear",
-  "Bottom",
-  "Tops",
-  "Attire",
-  "Camera",
+  "Electronics",
+  "Fashion",
+  "Sports",
+  "Kitchen Items",
+  "Wearables",
+  "Books",
   "SmartPhones",
+  "Others",
 ];
 
 const Products = ({ match }) => {
@@ -27,10 +28,17 @@ const Products = ({ match }) => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([0, 25000]);
+  const [r, setr] = useState([0, 25000]);
   const [category, setCategory] = useState("");
 
   const [ratings, setRatings] = useState(0);
 
+  function valuetext(r) {
+    return `${r}°C`;
+  }
+  const handleChange = (event, newValue) => {
+    setr(newValue);
+  };
   const {
     products,
     loading,
@@ -49,14 +57,13 @@ const Products = ({ match }) => {
   const priceHandler = (event, newPrice) => {
     setPrice(newPrice);
   };
-  let count = filteredProductsCount;
 
+  let count = filteredProductsCount;
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
-
     dispatch(getProduct(keyword, currentPage, price, category, ratings));
   }, [dispatch, keyword, currentPage, price, category, ratings, alert, error]);
 
@@ -70,6 +77,19 @@ const Products = ({ match }) => {
           <h2 className="productsHeading">Products</h2>
 
           <div className="products">
+            <div>
+              {count === 0 && (
+                <div
+                  style={{
+                    color: "red",
+                    fontSize: "1.5rem",
+                    fontWeight: "bold",
+                  }}
+                >
+                  NO PRODUCT FOUND!
+                </div>
+              )}
+            </div>
             {products &&
               products.map((product) => (
                 <ProductCard key={product._id} product={product} />
@@ -78,11 +98,14 @@ const Products = ({ match }) => {
 
           <div className="filterBox">
             <Typography>Price</Typography>
+
             <Slider
-              value={price}
-              onChange={priceHandler}
+              getAriaLabel={() => "Temperature range"}
+              value={r}
+              onChangeCommitted={priceHandler}
+              onChange={handleChange}
               valueLabelDisplay="auto"
-              aria-labelledby="range-slider"
+              getAriaValueText={valuetext}
               min={0}
               max={25000}
             />
@@ -102,13 +125,17 @@ const Products = ({ match }) => {
 
             <fieldset>
               <Typography component="legend">Ratings Above</Typography>
+
               <Slider
-                value={ratings}
-                onChange={(e, newRating) => {
+                aria-label="Temperature"
+                defaultValue={ratings}
+                getAriaValueText={valuetext}
+                onChangeCommitted={(e, newRating) => {
                   setRatings(newRating);
                 }}
-                aria-labelledby="continuous-slider"
                 valueLabelDisplay="auto"
+                step={1}
+                marks
                 min={0}
                 max={5}
               />
